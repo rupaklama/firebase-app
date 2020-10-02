@@ -23,6 +23,9 @@ firebase.initializeApp(config);
 // accessing firebase firestore database service with our app 
 const db = firebase.firestore();
 
+// server timestamp
+export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
+
 // Accessing Collection
 // instead of accessing db like this - db.collection('cars') in below
 // alternative approach is to use - References
@@ -36,7 +39,7 @@ export const carsCollection = db.collection('cars'); // reference to cars collec
 export const employeeRef = db.collection('site').doc('employees').collection('admins');
 
 // accessing data base collections with different methods & passing different options - {}
-// .get() - to access a single collection inside document using promise
+// .get() - to access particular document inside a single collection using promise
 // In the world of firebase, when you bring something back from the db, these are call - snapshots
 // Snapshot is different kind of data information for a particular document that we get from firebase 
 // db.collection('cars').get().then( snapshot => {
