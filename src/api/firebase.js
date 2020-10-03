@@ -5,6 +5,15 @@ import * as firebase from 'firebase/app';
 // to interact with firestore database
 import 'firebase/firestore';
 
+// need to import auth library from firebase for authentication
+import 'firebase/auth';
+
+// to interact with database
+import 'firebase/database';
+
+// firebase storage
+import 'firebase/storage';
+
 // our web app's Firebase configuration
 const config = {
   apiKey: "AIzaSyBXKSgaCSF-w7Uw_SLuLkHBcuT9l0tr1Xo",
@@ -23,10 +32,16 @@ firebase.initializeApp(config);
 // accessing firebase firestore database service with our app 
 const db = firebase.firestore();
 
+// accessing firebase auth  
+firebase.auth();
+
+
 // server timestamp
 export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-// Accessing Collection
+// Making References to access Collections in firestore
+// References create individual reference to Collections & good design pattern
+
 // instead of accessing db like this - db.collection('cars') in below
 // alternative approach is to use - References
 // Reference to access Collection - documents id

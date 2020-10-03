@@ -13,16 +13,19 @@ class Form extends Component {
 
   // to update 
   componentDidMount() {
-    carsCollection.doc('VwkZKuGTwfEIspH6fO21').update({
-      // updating nested values in objects 
-      'dealers.california': false,  // key/value
+    carsCollection.doc('M1wVAEpd6to55JH2rHU8').update({
+      // updating nested value in nested object
+      // 'dealers.california': false,  // key/value
+      color: 'crazy',
 
-      // updating an array with new value
+      // adding an element in an array with new value - arrayUnion
       // FieldValue.arrayRemove('Awesome') - to remove element
       'tags': firebase.firestore.FieldValue.arrayUnion('Awesome')
 
       // cannot duplicate values in array inside firestore
-      
+      // may cause errors
+
+
     })
   }
 
@@ -122,5 +125,16 @@ class Form extends Component {
     );
   }
 }
+
+// listening document
+// onSnapshot gets access to the document & let us know of any changes
+// carsCollection.doc('M1wVAEpd6to55JH2rHU8').onSnapshot((doc) => {
+//   console.log('Current data', doc.data())
+// })
+
+// listening collection
+// carsCollection.onSnapshot(querySnapshot => {
+//   console.log(querySnapshot.docChanges())
+// });
 
 export default Form;

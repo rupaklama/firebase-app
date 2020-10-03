@@ -12,6 +12,7 @@ export const  firebaseLooper = (snapshot) => {
   snapshot.forEach( doc => {
     fetchData.push({
       // adding data objects into an array & its id
+      // data() is to access data
       ...doc.data(),
       id: doc.id
     })

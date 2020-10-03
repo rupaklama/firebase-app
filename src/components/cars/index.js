@@ -9,6 +9,8 @@ import { carsCollection } from '../../api/firebase';
 class Cars extends Component {
   state = {
     cars: null,
+    start: 0,
+    end: 100
   };
 
   // .get() - to access particular document inside a single collection using promise
@@ -27,7 +29,12 @@ class Cars extends Component {
       
       // order by method query
       // .orderBy('price', 'desc')
-      .orderBy('createdAt', 'desc') // timestamp
+      .orderBy('price', 'asc') // timestamp
+      // filtering method - also try: startAfter & endBefore
+      .startAt(this.state.start) // field values to start this query at, in order of the query's order by
+      .endAt(this.state.end)
+      // .limit(2) // max number of items to return from particular document
+      // .limitToLast(2) // last two items in particular document
       .get()
       .then(snapshot => {
         // firebaseLooper to convert snapshot to an array of objects
@@ -44,11 +51,18 @@ class Cars extends Component {
     this.getAllTheCars();
 
     // get doc by id
-    // carsCollection.doc('52Su9LbEZkPWTsWdVAta')
-    //   .get()
-    //   .then(snapshot => {
-    //     console.log(snapshot.data())
-    //   });
+    carsCollection.doc('sss')
+      .get()
+      .then(snapshot => {
+        // snapshot.exists to find out if we have particular data
+        // firestore don't display any error message if we don't have particular data
+        // console.log(snapshot)
+        // if (!snapshot.exists) {
+        //   return console.log('sorry no record found :(')
+        // }
+      }).catch( e => {
+        console.log(e)
+      })
 
     // .get() - to access a single collection inside document using promise
     // querySnapshot is same as snapshot like above
@@ -71,11 +85,24 @@ class Cars extends Component {
         ))
       : null;
 
+  sortResults = (values) => {
+    this.setState({
+      start: values[0],
+      end: values[1]
+    }, () => {
+      // with setState, you can run a callback
+      this.getAllTheCars()
+    })
+  }
   render() {
     return (
       <Fragment>
 
         <Form />
+        <br />
+        <button onClick={() => this.sortResults([100, 200])}>100-200</button>
+        <button onClick={() => this.sortResults([300, 400])}>300-400</button>
+        <button onClick={() => this.sortResults([500, 1000])}>500-1000</button>
         <hr />
 
         <table className="table table-light">

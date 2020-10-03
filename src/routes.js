@@ -4,9 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // components
 import Home from './components/index';
 import Header from './components/header';
-import Footer from './components/footer';
 import Cars from './components/cars'
-
+import Login from './components/user/Login';
 const Routes = () => (
     <BrowserRouter>
         <Header/>
@@ -14,6 +13,7 @@ const Routes = () => (
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/cars" component={Cars}/>
+                <Route exact path="/login" component={Login}/>
             </Switch>
         </main>
     </BrowserRouter>
