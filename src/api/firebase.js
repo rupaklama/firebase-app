@@ -47,6 +47,9 @@ export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 // Reference to access Collection - documents id
 export const carsCollection = db.collection('cars'); // reference to cars collection
 
+// user collection
+export const usersCollection = db.collection('users');
+
 // Reference to access Document - objects id
 // export const siteRef = db.doc('site/business'); // collection/document
 
