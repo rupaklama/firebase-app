@@ -35,6 +35,12 @@ const db = firebase.firestore();
 // accessing firebase auth  
 firebase.auth();
 
+// firebase storage
+const storage = firebase.storage();
+// references - on storage we use ref
+const storageRef = storage.ref();
+// reference to store images
+export const usersRef = storageRef.child('/images/users/');
 
 // server timestamp
 export const firebaseTimestamp = firebase.firestore.FieldValue.serverTimestamp;
