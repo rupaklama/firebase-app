@@ -36,9 +36,9 @@ const db = firebase.firestore();
 firebase.auth();
 
 // firebase storage
-const storage = firebase.storage();
+export const storage = firebase.storage();
 // references - on storage we use ref
-const storageRef = storage.ref();
+export const storageRef = storage.ref();
 // reference to store images
 export const usersRef = storageRef.child('/images/users/');
 

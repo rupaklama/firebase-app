@@ -3,7 +3,7 @@ import firebase, { usersCollection } from '../../api/firebase';
 
 class LoginForm extends Component {
   state = {
-    register: true,
+    register: false,
     user: {
       email: '',
       password: '',

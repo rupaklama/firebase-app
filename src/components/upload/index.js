@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { usersRef } from '../../api/firebase';
+import firebase, { storage } from '../../api/firebase';
 import List from './List';
 class Upload extends Component {
 
@@ -11,12 +11,13 @@ class Upload extends Component {
   handleUpload = (event) => {
     event.preventDefault();
     
-    // const { image } = this.state;
+    const { image } = this.state;
     // child method - Returns a reference to a relative path from this reference
     // creating dirs - images/users/
-    usersRef.child(`${this.state.image.name}`)
+    const user = firebase.auth().currentUser;
+    storage.ref(`users/${user.uid}/${image.name}`)
     // put method - Uploads data to this reference's location
-    .put(this.state.image)
+    .put(image)
     .then( () => {
       console.log('file uploaded')
     })
