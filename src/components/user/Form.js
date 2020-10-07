@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase, { usersCollection } from '../../api/firebase';
+import firebase, { usersCollection, functions } from '../../api/firebase';
 
 class LoginForm extends Component {
   state = {
@@ -136,6 +136,16 @@ class LoginForm extends Component {
     })
     .catch( e => console.log(e))
   }
+
+  // callable cloud function
+  handleCallable = () => {
+    console.log('trigger')
+    const addLog = functions.httpsCallable('addLog');
+
+    addLog().then(response => {
+      console.log(response)
+    })
+  }
   render() {
     return (
       <div>
@@ -175,6 +185,10 @@ class LoginForm extends Component {
 
         <hr />
         <button onClick={this.handleGoogleSignin}>Google Sign in</button>
+
+        <hr />
+        <button onClick={this.handleCallable}>Trigger Cloud function</button>
+
       </div>
     );
   }

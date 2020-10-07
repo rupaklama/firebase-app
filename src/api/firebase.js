@@ -14,6 +14,9 @@ import 'firebase/database';
 // firebase storage
 import 'firebase/storage';
 
+// cloud functions
+import 'firebase/functions'
+
 // our web app's Firebase configuration
 const config = {
   apiKey: "AIzaSyBXKSgaCSF-w7Uw_SLuLkHBcuT9l0tr1Xo",
@@ -34,6 +37,9 @@ const db = firebase.firestore();
 
 // accessing firebase auth  
 firebase.auth();
+
+// cloud function instance
+export const functions = firebase.functions();
 
 // firebase storage
 export const storage = firebase.storage();
