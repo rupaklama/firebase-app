@@ -68,10 +68,14 @@ export const usersCollection = db.collection('users');
 // Reference to access sub-collections - nested collection 'admins'
 export const employeeRef = db.collection('site').doc('employees').collection('admins');
 
-// accessing data base collections with different methods & passing different options - {}
-// .get() - to access particular document inside a single collection using promise
-// In the world of firebase, when you bring something back from the db, these are call - snapshots
-// Snapshot is different kind of data information for a particular document that we get from firebase 
+// to query Specific Collection with firestore collection methods
+// .get() - to access particular document inside of a single collection using promise
+// In the world of firebase, when you bring something back from the firestore-db, these are call - snapshots
+// Snapshot is a collection of different kind of data information for a
+// particular collection/document that we get from firebase.
+
+// We get the snapshotObject from the referenceObject using
+// the .get() method. ie. documentRef.get() or collectionRef.get()
 // db.collection('cars').get().then( snapshot => {
 //   console.log(snapshot);
 //   // Within each snapshot, comes with default forEach() - not js function
@@ -86,6 +90,9 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 // }).catch( error => {
 //   console.log(error)
 // });
+
+// documentRef returns a 'documentSnapshot' object - single document
+// collectionRef returns a 'querySnapshot' object - all the documents
 
 // to use firebase in other parts of our app
 export default firebase;
