@@ -84,7 +84,7 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 //   snapshot.forEach((doc) => {
 //     // document snapshot has a method call - data()
 //     // data method gives us human readable data but 
-//     // not id since it's not part of an object, however, there's methods for it
+//     // not id since it's not part of an object, however, there's methods for it - console.log(doc.id);
 //     console.log(doc.data())
 //   })
 // }).catch( error => {
