@@ -2,13 +2,13 @@
 // just import firebase app only, that's all we need
 import * as firebase from 'firebase/app';
 
-// to interact with firestore database
+// connecting to firestore database
 import 'firebase/firestore';
 
 // need to import auth library from firebase for authentication
 import 'firebase/auth';
 
-// to interact with database
+// to connect to firestore database
 import 'firebase/database';
 
 // firebase storage
@@ -87,4 +87,5 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 //   console.log(error)
 // });
 
+// to use firebase in other parts of our app
 export default firebase;
