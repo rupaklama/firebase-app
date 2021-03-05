@@ -82,7 +82,7 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 //   // forEach just works like regular forEach to access array of data/objects in 
 //   // docs property of snapshot
 //   snapshot.forEach((doc) => {
-//     // document has a method call - data()
+//     // document snapshot has a method call - data()
 //     // data method gives us human readable data but 
 //     // not id since it's not part of an object, however, there's methods for it
 //     console.log(doc.data())
