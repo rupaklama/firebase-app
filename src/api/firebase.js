@@ -91,8 +91,8 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 //   console.log(error)
 // });
 
-// documentRef returns a 'documentSnapshot' object - single document
-// collectionRef returns a 'querySnapshot' object - all the documents
+// documentRef returns a single document object
+// collectionRef returns all the documents objects 
 
 // to use firebase in other parts of our app
 export default firebase;
