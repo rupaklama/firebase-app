@@ -20,10 +20,10 @@ class Cars extends Component {
   // get method
   getAllTheCars = () => {
     carsCollection
-    // using 'Where' clause method for query like in sql, we can chain many of it
-    // first arg is what we want to query
-    // second arg is the comparison operator 
-    // third arg is the objects property
+     // using 'Where' clause method for query like in sql, we can chain many of it
+      // first arg is what we want to check - objects property
+      // second arg is the comparison operator
+      // third arg is the value for comparison
       // .where('color', '==', 'red')
       // .where('price', '>=', 100)
       
