@@ -67,7 +67,7 @@ export const usersCollection = db.collection('users');
 
 // We can get all the documents in the Collection by calling the .docs property.
 // It returns an array of our documents as documentSnapshot objects.
-// '.docs property' is same as Collection Reference object
+// '.doc property' is same as Collection Reference object
 
 // Reference to access sub-collections - nested collection 'admins'
 export const employeeRef = db.collection('site').doc('employees').collection('admins');
