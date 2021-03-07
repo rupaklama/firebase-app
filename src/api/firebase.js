@@ -96,5 +96,8 @@ export const employeeRef = db.collection('site').doc('employees').collection('ad
 // The documentSnapshot object allows us to check if a document exists at this query using the '.exists' property which returns a boolean.
 // We can also get the actual properties on the object by calling the .data() method, which returns us a JSON object of the document.
 
+// We can check if there are any documents in the Collection by calling the .empty property which returns a boolean.
+// We can get all the documents in the Collection by calling the .docs property. It returns an array of our documents as documentSnapshot objects.
+
 // to use firebase in other parts of our app
 export default firebase;
